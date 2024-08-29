@@ -9,21 +9,34 @@ use App\Models\Movie as MovieModel;
 class Movie extends Component
 {
    public MovieModel $dailyMovie;
+   public string $inputString = '';
 
-
-   public string $userGuess = '';
-
+   public MovieModel $selectedMovie;
    public Collection $relatedMovies;
     public function mount()
     {
         $this->dailyMovie = MovieModel::all()->first();
-        $this->userGuess = '';
-        $this->checkAnswer();
+        $this->inputString = '';
+        $this->selectedMovie = new MovieModel();
+        $this->updateRelatedMovies();
     }
 
-    public function checkAnswer() {
-        $this->relatedMovies = MovieModel::where('title', 'like', '%' . $this->userGuess . '%')->get();
+    public function updatedInputString()
+    {
+        $this->updateRelatedMovies();
     }
+
+    public function selectMovie($movieId) {
+        $this->selectedMovie = MovieModel::find($movieId);
+        $this->inputString = $this->selectedMovie->title;
+        $this->relatedMovies = collect();
+    }
+
+    public function updateRelatedMovies()
+    {
+        $this->relatedMovies = MovieModel::whereRaw('LOWER(title) LIKE ?', ['%' . strtolower($this->inputString) . '%'])->get();
+    }
+
     public function render()
     {
         return view('livewire.movie');
