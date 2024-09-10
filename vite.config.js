@@ -3,12 +3,11 @@ import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     server: {
-        host: true,
-        origin: 'http://localhost:5174', // Use a different port here
-        port: 5174, // Change to the new port
-        strictPort: true, // Keep this if you want to ensure Vite uses the specified port
+        host: 'localhost',
+        port: 5174,
+        strictPort: true,
         cors: {
-            origin: 'http://localhost:5174', // Update CORS origin to match the new port
+            origin: 'http://localhost:8000', // Allow the Laravel server's origin
             credentials: true,
         },
         hmr: {

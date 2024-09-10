@@ -30,6 +30,7 @@ class Movie extends Component
         $this->selectedMovie = MovieModel::find($movieId);
         $this->inputString = $this->selectedMovie->title;
         $this->relatedMovies = collect();
+        $this->dispatch('movieSelected', $movieId);
     }
 
     public function updateRelatedMovies()

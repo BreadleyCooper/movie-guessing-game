@@ -7,11 +7,11 @@
     @vite('resources/css/app.css')
     @livewireStyles
 </head>
-<body class="max-w-7xl mx-auto border border-1 border-black">
-<h1 class="text-3xl font-bold underline p-3">
-    Hello world!
+<body class="max-w-7xl mx-auto bg-amber-100">
+<h1 class="text-3xl font-bold underline p-3 w-fit mx-auto">
+    Moodle
 </h1>
-<div class="border border-1 border-red-500 m-2 p-2">
+<div class=" m-2 p-2">
     <livewire:movie />
 </div>
 @livewireScripts

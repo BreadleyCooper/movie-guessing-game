@@ -1,8 +1,5 @@
 <div class="container mx-auto p-4">
     <div class="mb-4">
-        <h1 class="text-2xl font-bold">Selected movie: {{$selectedMovie->title}}</h1>
-    </div>
-    <div class="mb-4">
         <h2 class="text-xl font-semibold mb-2">Guess the movie:</h2>
         <div class="relative">
             <input
@@ -22,8 +19,16 @@
             @endif
         </div>
     </div>
-    <div class="mt-4">
+    <div class="mt-4 {{ $selectedMovie->title ? 'visible' : 'hidden' }}">
         <h3 class="text-lg font-semibold mb-2">Your current guess:</h3>
-        <div class="p-2 bg-gray-100 rounded-md text-xl">{{$inputString}}</div>
+        <div class="p-2 bg-gray-100 rounded-md text-xl">{{$selectedMovie->title}}</div>
     </div>
+    <livewire:movie-stats-layout :selectedMovie="$selectedMovie" :dailyMovie="$dailyMovie" />
+    @if(!$selectedMovie->title)
+        <div class="flex flex-col gap-2 text-center">
+        <p>Guess the movie of the day.
+            </p>
+            <p>Search for a movie to make your first guess.</p>
+        </div>
+    @endif
 </div>
