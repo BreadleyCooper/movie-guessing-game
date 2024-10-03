@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Collection;
 use Livewire\Component;
 use App\Models\Movie as MovieModel;
 
@@ -11,6 +12,8 @@ class MovieStatsLayout extends Component
     public MovieModel $dailyMovie;
     public MovieModel $selectedMovie;
     public string $releaseDateMatch = "";
+
+    public Collection $selectedMovies;
 
     public array $stats = [
         'budget' => '',
@@ -23,11 +26,19 @@ class MovieStatsLayout extends Component
     {
         $this->selectedMovie = $selectedMovie;
         $this->dailyMovie = $dailyMovie;
+        $this->selectedMovies = collect();
+    }
+
+    public function updatedSelectedMovies() {
+        $this->selectedMovies->add($this->selectedMovie);
+        session()->put('selectedMovies', $this->selectedMovies->pluck('id'));
     }
 
     public function selectMovie(MovieModel $movie)
     {
         $this->selectedMovie = $movie;
+//        put this in the selected movies array and store in session storage
+        $this->updatedSelectedMovies();
         $this->compareStats();
     }
 

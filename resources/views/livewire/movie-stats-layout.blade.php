@@ -1,4 +1,4 @@
-
+{{--bg-green-500--}}
 <div>
     @if($selectedMovie->title)
     <div class="flex w-full justify-center mx-auto">

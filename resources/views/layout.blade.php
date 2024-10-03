@@ -12,7 +12,7 @@
     Moodle
 </h1>
 <div class=" m-2 p-2">
-    <livewire:movie />
+    {{$slot}}
 </div>
 @livewireScripts
 
