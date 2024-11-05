@@ -3,7 +3,7 @@
         <input
             wire:model.live.debounce.250ms="inputString"
             type="text"
-            class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6"
             placeholder="Type to search movies..."
             @focus="open = true"
         >

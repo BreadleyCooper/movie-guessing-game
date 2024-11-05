@@ -10,6 +10,8 @@ class SelectedMovies extends Component
 {
     public Movie $dailyMovie;
     public array $selectedMovies = [];
+    public int $guessCount = 0;
+
     public function mount(Movie $dailyMovie)
     {
         $this->dailyMovie = $dailyMovie;
@@ -18,6 +20,7 @@ class SelectedMovies extends Component
     #[On('movieSelected')]
     public function handleMovieGuessSelection(Movie $movie) {
         $this->selectedMovies[] = $movie;
+        $this->guessCount++;
     }
     public function render()
     {

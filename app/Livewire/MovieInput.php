@@ -20,6 +20,7 @@ class MovieInput extends Component
     }
 
     public function handleMovieGuessSubmission($movieId) {
+        $this->inputString = '';
         $selectedMovie = MovieModel::find($movieId);
         $this->dispatch('movieSelected', $selectedMovie);
     }

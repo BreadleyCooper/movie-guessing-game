@@ -11,7 +11,7 @@
 <h1 class="text-3xl font-bold underline p-3 w-fit mx-auto">
     Moodle
 </h1>
-<div class=" m-2 p-2">
+<div class=" m-2 p-2 mx-auto">
     {{$slot}}
 </div>
 @livewireScripts
