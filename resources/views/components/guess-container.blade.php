@@ -5,7 +5,7 @@
     'selectedMovie'
 ])
 
-<div class="bg-repeat-x bg-contain bg-center" style="background-image: url('{{ asset('storage/film-reel1.png') }}'); min-height: 500px;">
+<div class="bg-repeat-x bg-contain bg-center">
 <div class="bg-gray-100 p-2 rounded-md max-w-xl mx-auto flex flex-col my-16">
     <p class="text-xl font-semibold mb-2">{{$selectedMovie->title}}</p>
 

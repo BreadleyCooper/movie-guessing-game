@@ -6,4 +6,7 @@
     @foreach($selectedMovies as $movie)
         <x-guess-container :selectedMovie="$movie" :dailyMovie="$dailyMovie"/>
     @endforeach
+    @if ($showWinnerModal)
+        <livewire:winner-modal :dailyMovie="$dailyMovie" :guessCount="1">
+    @endif
 </div>
