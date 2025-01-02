@@ -16,18 +16,5 @@
 </div>
 @livewireScripts
 
-{{--<script>--}}
-{{--    const gameState = localStorage.getItem("gameState");--}}
-{{--    console.log(gameState);--}}
-{{--    if(!gameState){--}}
-{{--        const gameState = {--}}
-{{--            selectedMovies: [],--}}
-{{--        };--}}
-{{--        localStorage.setItem("gameState", JSON.stringify(gameState));--}}
-{{--    } else {--}}
-{{--        const gameState = JSON.parse(localStorage.getItem("gameState"));--}}
-{{--    }--}}
-{{--</script>--}}
-
 </body>
 </html>

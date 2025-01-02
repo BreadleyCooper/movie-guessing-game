@@ -12,7 +12,7 @@ class HomePage extends Component
 
 
     public function mount() {
-        $this->dailyMovie = Movie::all()->first();
+        $this->dailyMovie = Movie::where('selected_on', now())->first();
     }
     #[Layout('layout')]
     public function render()

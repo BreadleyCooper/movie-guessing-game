@@ -22,6 +22,14 @@ class SelectedMovies extends Component
     public function mount(Movie $dailyMovie)
     {
         $this->dailyMovie = $dailyMovie;
+        if(session()->get('showWinnerModal')) {
+            $this->showWinnerModal = true;
+            $this->gameOver();
+        }
+        if(session()->get('showLoserModal')) {
+            $this->showLoserModal = true;
+            $this->gameOver();
+        }
     }
 
     public function gameOver() {
@@ -43,11 +51,13 @@ class SelectedMovies extends Component
         $this->guessCount++;
         if ($movie->id === $this->dailyMovie->id) {
             $this->showWinnerModal = true;
+            session()->put('showWinnerModal', true);
             $this->gameOver();
         }
 
         if ($this->guessCount >= 10) {
             $this->showLoserModal = true;
+            session()->put('showLoserModal', true);
             $this->gameOver();
         }
     }
