@@ -9,4 +9,7 @@
     @if ($showWinnerModal)
         <livewire:winner-modal :dailyMovie="$dailyMovie" :guessCount="1">
     @endif
+    @if ($showLoserModal)
+        <livewire:loser-modal :dailyMovie="$dailyMovie" :selectedMovie="$dailyMovie">
+    @endif
 </div>

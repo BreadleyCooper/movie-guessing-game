@@ -31,10 +31,11 @@ class MovieInputTest extends TestCase
     {
         // Create a test movie
         $testMovie = Movie::factory()->create(['title' => 'Test Movie']);
+        $dailyMovie = Movie::factory()->create(['title' => 'Test Movie']);
 
         // Create and mount both components
         $movieInput = Livewire::test(MovieInput::class);
-        $selectedMovies = Livewire::test(SelectedMovies::class);
+        $selectedMovies = Livewire::test(SelectedMovies::class, ['dailyMovie' => $dailyMovie]);
 
         // Select a movie
         $movieInput->call('handleMovieGuessSubmission', $testMovie->id);

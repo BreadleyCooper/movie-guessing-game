@@ -1,4 +1,5 @@
 <form wire:submit.prevent='handleMovieGuessSubmission()'>
+    @unless($hidden)
     <div class="relative" x-data="{ open: false }" @click.outside="open = false">
         <input
             wire:model.live.debounce.250ms="inputString"
@@ -19,4 +20,5 @@
             </ul>
         @endif
     </div>
+    @endunless
 </form>
